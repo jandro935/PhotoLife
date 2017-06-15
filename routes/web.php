@@ -19,12 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('facebook/authorize', function() {
-    return \AdamWathan\EloquentOAuth\Facades\OAuth::authorize('facebook');
+Route::get('authorize', function () {
+    return Socialize::with('facebook')->redirect();
 })->name('fb');
 
-Route::get('user', function () {
-    \AdamWathan\EloquentOAuth\Facades\OAuth::login('facebook');
-    $user = Auth::user();
-    return dd($user);
-});
+//Route::get('user', function () {
+//    $user = Socialize::with('facebook')->user();
+//    return dd($user);
+//});
+
+Route::get('facebook/save', 'Auth\LoginController@facebook');

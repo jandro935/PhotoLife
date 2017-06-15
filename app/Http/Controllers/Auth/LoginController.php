@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Laravel\Socialite\Facades\Socialite as Socialize;
 
 class LoginController extends Controller
 {
@@ -33,5 +37,36 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Login with Facebook.
+     *
+     * If the user does not exists, we create in the database.
+     *
+     * @return mixed
+     */
+    public function facebook()
+    {
+        $userFacebook = Socialize::with('facebook')->user();
+
+        $userFacebookId = $userFacebook->getId();
+        $userNickname = $userFacebook->getNickname() === null ? ' ' : $userFacebook->getNickName();
+
+        $user = User::where('facebook_id', $userFacebookId)->first();
+
+        if (!$user) {
+            $user = User::create([
+                'username' => $userNickname,
+                'email' => $userFacebook->getEmail(),
+                'password' => bcrypt('secret'),
+                'user_avatar' => $userFacebook->getAvatar(),
+                'facebook_id' => $userFacebookId
+            ]);
+        }
+
+        Auth::loginUsingId($user->id);
+
+        return Redirect::route('home');
     }
 }

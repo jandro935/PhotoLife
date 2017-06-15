@@ -30,9 +30,15 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => App\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'facebook' => [
+        'client_id' => '186161575125132',
+        'client_secret' => 'f294c2c0c6af61fa9bf21fe1fc444e5f',
+        'redirect' => 'http://photolife.pro/facebook/save',
     ],
 
 ];

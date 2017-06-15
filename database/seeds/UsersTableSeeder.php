@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'alejandro.seisdedos@gft.com',
             'password' => bcrypt('admin'),
             'user_avatar' => 'http://lorempixel.com/100/100/',
+            'facebook_id' => null
         ]);
     }
 }
