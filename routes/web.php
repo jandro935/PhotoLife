@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('facebook/authorize', function() {
+    return \AdamWathan\EloquentOAuth\Facades\OAuth::authorize('facebook');
+})->name('fb');
+
+Route::get('user', function () {
+    \AdamWathan\EloquentOAuth\Facades\OAuth::login('facebook');
+    $user = Auth::user();
+    return dd($user);
+});

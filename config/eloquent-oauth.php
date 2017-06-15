@@ -9,7 +9,7 @@ return [
         'facebook' => [
             'client_id' => '186161575125132',
             'client_secret' => 'f294c2c0c6af61fa9bf21fe1fc444e5f',
-            'redirect_uri' => '/',
+            'redirect_uri' => 'http://photolife.pro/user',
             'scope' => [],
         ],
         'google' => [
