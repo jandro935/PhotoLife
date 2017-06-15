@@ -1,15 +1,15 @@
 <?php
 
-use App\User;
+use App\Models\User;
 
 return [
     'model' => User::class,
     'table' => 'oauth_identities',
     'providers' => [
         'facebook' => [
-            'client_id' => '12345678',
-            'client_secret' => 'y0ur53cr374ppk3y',
-            'redirect_uri' => 'https://example.com/your/facebook/redirect',
+            'client_id' => '186161575125132',
+            'client_secret' => 'f294c2c0c6af61fa9bf21fe1fc444e5f',
+            'redirect_uri' => '/',
             'scope' => [],
         ],
         'google' => [
