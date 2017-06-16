@@ -51,11 +51,8 @@ class LoginController extends Controller
     public function facebook(Generator $faker)
     {
         $userFacebook = Socialize::with('facebook')->user();
-
-        $userFacebookId = $userFacebook->getId();
         $userNickname = $userFacebook->getNickname() === null ? $faker->userName : $userFacebook->getNickName();
-
-        $user = User::where('facebook_id', $userFacebookId)->first();
+        $user = User::where('facebook_id', $userFacebook->getId())->first();
 
         if (!$user) {
             $user = User::create([
@@ -64,7 +61,37 @@ class LoginController extends Controller
                 'email' => $userFacebook->getEmail(),
                 'password' => bcrypt('secret'),
                 'user_avatar' => $userFacebook->getAvatar(),
-                'facebook_id' => $userFacebookId
+                'facebook_id' => $userFacebook->getId()
+            ]);
+        }
+
+        Auth::loginUsingId($user->id);
+
+        return Redirect::route('home');
+    }
+
+    /**
+     * Login with Twitter.
+     *
+     * If the user does not exists, we create in the database.
+     *
+     * @param Generator $faker
+     * @return mixed
+     */
+    public function twitter(Generator $faker)
+    {
+        $userTwitter = Socialize::with('twitter')->user();
+        $userEmail = $userTwitter->getEmail() === null ? $faker->email : $userTwitter->getEmail();
+        $user = User::where('twitter_id', $userTwitter->getId())->first();
+
+        if (!$user) {
+            $user = User::create([
+                'username' => $userTwitter->getNickName(),
+                'name' => $userTwitter->getName(),
+                'email' => $userEmail,
+                'password' => bcrypt('secret'),
+                'user_avatar' => $userTwitter->getAvatar(),
+                'twitter_id' => $userTwitter->getId()
             ]);
         }
 
@@ -73,3 +100,28 @@ class LoginController extends Controller
         return Redirect::route('home');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

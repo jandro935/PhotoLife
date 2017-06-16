@@ -46,7 +46,7 @@
                     <p class="u-LineHeight2 u-MarginBottom50">Enter your information below to sign in</p>
                     <div class="social-links sl-default round-link colored-link u-MarginBottom50">
                         <a href="{{ route('fb') }}" class="btn facebook" title="Login with Facebook">Facebook</a>
-                        <a href="#" class="btn twitter">Twitter</a>
+                        <a href="{{ route('tw') }}" class="btn twitter" title="Login with Twitter">Twitter</a>
                         <a href="#" class="btn g-plus">Google Plus</a>
                     </div>
                     <form>
