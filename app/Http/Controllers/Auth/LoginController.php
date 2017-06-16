@@ -43,27 +43,12 @@ class LoginController extends Controller
     /**
      * Login with Facebook.
      *
-     * If the user does not exists, we create in the database.
-     *
      * @param Generator $faker
      * @return mixed
      */
     public function facebook(Generator $faker)
     {
-        $userFacebook = Socialize::with('facebook')->user();
-        $userNickname = $userFacebook->getNickname() === null ? $faker->userName : $userFacebook->getNickName();
-        $user = User::where('facebook_id', $userFacebook->getId())->first();
-
-        if (!$user) {
-            $user = User::create([
-                'username' => $userNickname,
-                'name' => $userFacebook->getName(),
-                'email' => $userFacebook->getEmail(),
-                'password' => bcrypt('secret'),
-                'user_avatar' => $userFacebook->getAvatar(),
-                'facebook_id' => $userFacebook->getId()
-            ]);
-        }
+        $user = $this->loginSocialMedia('facebook', $faker);
 
         Auth::loginUsingId($user->id);
 
@@ -73,29 +58,45 @@ class LoginController extends Controller
     /**
      * Login with Twitter.
      *
-     * If the user does not exists, we create in the database.
-     *
      * @return mixed
      * @internal param Generator $faker
      */
     public function twitter()
     {
-        $userTwitter = Socialize::with('twitter')->user();
-        $user = User::where('twitter_id', $userTwitter->getId())->first();
-
-        if (!$user) {
-            $user = User::create([
-                'username' => $userTwitter->getNickName(),
-                'name' => $userTwitter->getName(),
-                'email' => $userTwitter->getEmail(),
-                'password' => bcrypt('secret'),
-                'user_avatar' => $userTwitter->getAvatar(),
-                'twitter_id' => $userTwitter->getId()
-            ]);
-        }
+        $user = $this->loginSocialMedia('twitter');
 
         Auth::loginUsingId($user->id);
 
         return Redirect::route('home');
+    }
+
+    /**
+     * Login logic.
+     *
+     * If the user does not exists, we create in the database.
+     *
+     * @param $socialMedia
+     * @param null $faker
+     * @return mixed
+     */
+    public function loginSocialMedia($socialMedia, $faker = null)
+    {
+        $userSocialMedia = Socialize::with($socialMedia)->user();
+        $user = User::where($socialMedia.'_id', $userSocialMedia->getId())->first();
+
+        $userNickname = $socialMedia == 'facebook' ? ($userSocialMedia->getNickname() === null ? $faker->userName : $userSocialMedia->getNickName()) : $userSocialMedia->getNickname();
+
+        if (!$user) {
+            $user = User::create([
+                'username' => $userNickname,
+                'name' => $userSocialMedia->getName(),
+                'email' => $userSocialMedia->getEmail(),
+                'password' => bcrypt('secret'),
+                'user_avatar' => $userSocialMedia->getAvatar(),
+                $socialMedia.'_id' => $userSocialMedia->getId()
+            ]);
+        }
+
+        return $user;
     }
 }
