@@ -14,10 +14,10 @@ class UsersTableSeeder extends Seeder
     {
         factory(User::class)->create([
             'username' => 'jandro935',
+            'name' => 'Alejandro Seisdedos',
             'email' => 'alejandro.seisdedos@gft.com',
             'password' => bcrypt('admin'),
             'user_avatar' => 'http://lorempixel.com/100/100/',
-            'facebook_id' => null
         ]);
     }
 }
