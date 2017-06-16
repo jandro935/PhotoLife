@@ -36,9 +36,15 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '186161575125132',
-        'client_secret' => 'f294c2c0c6af61fa9bf21fe1fc444e5f',
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => 'http://photolife.pro/facebook/save',
+    ],
+
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_secret' => env('TWITTER_CLIENT_SECRET'),
+        'redirect' => 'http://photolife.pro/twitter/save',
     ],
 
 ];
