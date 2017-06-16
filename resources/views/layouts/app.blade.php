@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/imgs/favicon.png" />
 
-    <title>Posrfolio 1</title>
+    <title>{{ config('app.name') }}</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Heebo:100%7COpen+Sans:300,400,400i,600,700,800">
     <!-- inject:css -->

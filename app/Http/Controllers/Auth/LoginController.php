@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Faker\Generator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -44,16 +45,15 @@ class LoginController extends Controller
      *
      * If the user does not exists, we create in the database.
      *
+     * @param Generator $faker
      * @return mixed
      */
-    public function facebook()
+    public function facebook(Generator $faker)
     {
         $userFacebook = Socialize::with('facebook')->user();
 
-//        return dd($userFacebook);
-
         $userFacebookId = $userFacebook->getId();
-        $userNickname = $userFacebook->getNickname() === null ? ' ' : $userFacebook->getNickName();
+        $userNickname = $userFacebook->getNickname() === null ? $faker->userName : $userFacebook->getNickName();
 
         $user = User::where('facebook_id', $userFacebookId)->first();
 
