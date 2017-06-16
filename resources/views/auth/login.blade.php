@@ -47,7 +47,7 @@
                     <div class="social-links sl-default round-link colored-link u-MarginBottom50">
                         <a href="{{ route('fb') }}" class="btn facebook" title="Login with Facebook">Facebook</a>
                         <a href="{{ route('tw') }}" class="btn twitter" title="Login with Twitter">Twitter</a>
-                        <a href="#" class="btn g-plus">Google Plus</a>
+                        {{--<a href="#" class="btn g-plus">Google Plus</a>--}}
                     </div>
                     <form>
                         <div class="form-group">

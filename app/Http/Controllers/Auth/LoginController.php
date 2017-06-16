@@ -75,20 +75,19 @@ class LoginController extends Controller
      *
      * If the user does not exists, we create in the database.
      *
-     * @param Generator $faker
      * @return mixed
+     * @internal param Generator $faker
      */
-    public function twitter(Generator $faker)
+    public function twitter()
     {
         $userTwitter = Socialize::with('twitter')->user();
-        $userEmail = $userTwitter->getEmail() === null ? $faker->email : $userTwitter->getEmail();
         $user = User::where('twitter_id', $userTwitter->getId())->first();
 
         if (!$user) {
             $user = User::create([
                 'username' => $userTwitter->getNickName(),
                 'name' => $userTwitter->getName(),
-                'email' => $userEmail,
+                'email' => $userTwitter->getEmail(),
                 'password' => bcrypt('secret'),
                 'user_avatar' => $userTwitter->getAvatar(),
                 'twitter_id' => $userTwitter->getId()
@@ -100,28 +99,3 @@ class LoginController extends Controller
         return Redirect::route('home');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

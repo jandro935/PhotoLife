@@ -28,3 +28,8 @@ Route::get('twitter/authorize', function () {
 })->name('tw');
 
 Route::get('twitter/save', 'Auth\LoginController@twitter');
+
+/**** User Profile ****/
+Route::get('user/{id}', 'ProfileController@show')
+    ->middleware('auth')
+    ->name('user.show');
