@@ -11,21 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('authorize', function () {
     return Socialize::with('facebook')->redirect();
 })->name('fb');
-
-//Route::get('user', function () {
-//    $user = Socialize::with('facebook')->user();
-//    return dd($user);
-//});
 
 Route::get('facebook/save', 'Auth\LoginController@facebook');

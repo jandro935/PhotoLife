@@ -1,95 +1,198 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends ('layouts.app')
 
-        <title>Laravel</title>
+@section ('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <header>
+        @include ('partials.navigation')
+        <div class="clearfix"></div>
+    </header>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    --
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+    <!--banner start-->
+    <section id="home" class="container ImageBackground ImageBackground--overlay ImageBackground--overlay--white js-minusHeader u-height500" data-overlay="2">
+        <div class="ImageBackground__holder">
+            <img src="assets/imgs/white-girl.jpg" alt="...">
+        </div>
+        <div class="container u-vCenter">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1 class="u-MarginTop0 text-uppercase u-FontSize50 u-xs-FontSize30 u-Weight800">minimal . crispy . dynamic</h1>
+                    <div class="u-Block u-MarginBottom30">
+                        <span class="text-uppercase u-LetterSpacing3">- creative portfolio template -</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        <div class="position-bottom u-zIndex10">
+            <a class="btn btn-sm btn-creative btn-creative--prev btn--vertical text-uppercase ScrollTo" href="#about"><span class="arrow arrow-left"></span>Scroll</a>
+        </div>
+    </section>
+    <!--banner end-->
+
+    <!--heading start-->
+    <section id="about" class="u-PaddingTop100">
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-4 col-sm-5">
+                    <div class="Heading"  data-title="Alien">
+                        <small class="u-Block u-Weight700 u-LetterSpacing2 text-uppercase u-PaddingTop65">Creative portfolio</small>
+                        <div class="Split Split--height2 u-MarginTop20 u-MarginBottom5"></div>
+                        <h1 class="text-uppercase u-Weight800 u-Margin0">Its all about <br>Creativity <span class="Dot"></span></h1>
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-2 col-sm-6 col-sm-offset-1 u-xs-MarginTop30">
+                    <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo</p>
+                    <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes</p>
+                    <p><a class="btn btn-go" href="#" role="button">Get Started <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--heading end-->
+
+    <!--portfolio start-->
+    <div class="container">
+        <div class="row u-MarginTop60">
+            <div class="col-md-12">
+                <div class="">
+                    <ul class="js-PortfolioFilter portfolio-filter">
+                        <li class="active"><a href="#" data-filter="*"> All</a></li>
+                        <li><a href="#" data-filter=".cat1">printing</a></li>
+                        <li><a href="#" data-filter=".cat2">Web</a></li>
+                        <li><a href="#" data-filter=".cat3">illustration</a></li>
+                        <li><a href="#" data-filter=".cat4">media</a></li>
+                        <li><a href="#" data-filter=".cat5">crafts</a></li>
+                    </ul>
+                </div>
+
+                <div class="row js-Portfolio portfolio-grid portfolio-gallery">
+                    <div class="col-sm-6 portfolio-item cat1 cat3 cat5">
+                        <a href="assets/imgs/portfolio/2/01.jpg" class="portfolio-image popup-gallery" title="We are creative">
+                            <img src="assets/imgs/portfolio/2/01.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>We are creative</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 portfolio-item cat2 cat3 cat4">
+                        <a href="assets/imgs/portfolio/2/02.jpg" class="portfolio-image popup-gallery" title="Branding">
+                            <img src="assets/imgs/portfolio/2/02.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>Branding</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 portfolio-item cat1 cat2 cat3">
+                        <a href="assets/imgs/portfolio/2/03.jpg" class="portfolio-image popup-gallery" title="Design">
+                            <img src="assets/imgs/portfolio/2/03.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>Design</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-12 portfolio-item cat1 cat4">
+                        <a href="assets/imgs/portfolio/2/04.jpg" class="portfolio-image popup-gallery" title="Photography">
+                            <img src="assets/imgs/portfolio/2/04.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>Photography</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-6 portfolio-item cat2 cat3 cat4">
+                        <a href="assets/imgs/portfolio/2/05.jpg" class="portfolio-image popup-gallery" title="Branding">
+                            <img src="assets/imgs/portfolio/2/05.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>Branding</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 portfolio-item cat1 cat3 cat5">
+                        <a href="assets/imgs/portfolio/2/06.jpg" class="portfolio-image popup-gallery" title="We are creative">
+                            <img src="assets/imgs/portfolio/2/06.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>We are creative</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 portfolio-item cat1 cat2 cat3">
+                        <a href="assets/imgs/portfolio/2/07.jpg" class="portfolio-image popup-gallery" title="Design">
+                            <img src="assets/imgs/portfolio/2/07.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>Design</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-12 portfolio-item cat1 cat4">
+                        <a href="assets/imgs/portfolio/2/08.jpg" class="portfolio-image popup-gallery" title="Photography">
+                            <img src="assets/imgs/portfolio/2/08.jpg" alt=""/>
+                            <div class="portfolio-hover-title">
+                                <div class="portfolio-content">
+                                    <h4>Photography</h4>
+                                    <div class="portfolio-category">
+                                        <span>Cat 1</span>
+                                        <span>Cat 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row u-MarginTop60 u-MarginBottom100">
+            <div class="col-md-12">
+                <div class="u-FlexCenter">
+                    <a href="#" class="btn btn-sm btn-creative btn-creative--prev text-uppercase"><span class="arrow arrow-left"></span>Previous</a>
+                    <span class="u-PaddingRight50 u-PaddingLeft50 u-Weight800">01/12</span>
+                    <a href="#" class="btn btn-sm btn-creative btn-creative--next text-uppercase">Next<span class="arrow arrow-right"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--portfolio end-->
+
+@endsection
