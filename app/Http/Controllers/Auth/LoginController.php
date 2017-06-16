@@ -60,6 +60,7 @@ class LoginController extends Controller
         if (!$user) {
             $user = User::create([
                 'username' => $userNickname,
+                'name' => $userFacebook->getName(),
                 'email' => $userFacebook->getEmail(),
                 'password' => bcrypt('secret'),
                 'user_avatar' => $userFacebook->getAvatar(),
