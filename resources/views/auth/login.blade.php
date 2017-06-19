@@ -49,16 +49,30 @@
                         <a href="{{ route('tw') }}" class="btn twitter" title="Login with Twitter">Twitter</a>
                         {{--<a href="#" class="btn g-plus">Google Plus</a>--}}
                     </div>
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="User name" type="text">
+                    <form method="post" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username" required>
+
+                            @if ($errors->has('username'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('username') }}</strong>
+                                </span>
+                            @endif
                         </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" type="password">
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required>
+
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Sign In</button>
-                            <a href="#" class="pull-right u-MarginTop10 text-muted ">Forgot Password ?</a>
+                            <a href="{{ route('password.request') }}" class="pull-right u-MarginTop10 text-muted" title="Forgot Password ?">Forgot Password ?</a>
                         </div>
                         <p class="u-MarginTop60 u-xs-MarginTop30">
                             Don't have an account? <a href="{{ route('register') }}" class="btn-go btn-go--info" title="Create New Account">Create New Account</a>
