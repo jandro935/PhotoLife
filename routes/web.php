@@ -32,9 +32,16 @@ Route::get('twitter/save', 'Auth\LoginController@twitter');
 /**** User Profile ****/
 Route::get('user/{id}', 'ProfileController@show')
     ->middleware('auth')
-    ->name('user.show');
+    ->name('profile');
 
 /**** Upload ****/
 Route::get('upload', 'PhotoController@upload')
     ->middleware('auth')
-    ->name('photo.upload');
+    ->name('upload');
+
+Route::post('upload', 'PhotoController@save')
+    ->middleware('auth')
+    ->name('save');
+
+/**** Proof ****/
+Route::get('proof', 'PhotoController@proof');

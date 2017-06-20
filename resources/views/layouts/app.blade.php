@@ -67,8 +67,6 @@
     </footer>
     <!--footer end-->
 
-
-    <!-- inject:js -->
     <script src="/assets/vendor/jquery/jquery-1.12.0.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/vendor/bootsnav/js/bootsnav.js"></script>
@@ -82,6 +80,7 @@
     <script src="/assets/vendor/switchery/switchery.min.js"></script>
     <script src="/assets/vendor/swiper/js/swiper.min.js"></script>
     <script src="/assets/js/alien.js"></script>
-    <!-- endinject -->
+
+    <script src="{{ asset('js/functions.js') }}"></script>
 </body>
 </html>

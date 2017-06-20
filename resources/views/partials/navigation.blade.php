@@ -101,12 +101,12 @@
                         <li><a href="#">Custom Menu</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Portfolio</a></li>
+                <li><a href="{{ route('upload') }}" title="Upload Photo">Upload</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('user.show', Auth::user()->id) }}" title="Profile">Profile</a></li>
+                        <li><a href="{{ route('profile', Auth::user()->id) }}" title="Profile">Profile</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();" title="Logout">logout</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
