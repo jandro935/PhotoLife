@@ -27,17 +27,19 @@ class PhotoController extends Controller
     {
         $this->validate($request, [
             'image' => 'required|image',
-            'description' => 'string'
+            'state' => 'required',
+            'description' => 'string|max:500'
         ]);
 
         $image = $request->file('image');
 
         if (!is_null($image)) {
             $imageName = time().'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(800, 500)->save(public_path('/img/ups/'.$imageName));
-//            Image::make($image)->resize(800, 500, function ($constrait) {
-//                $constrait->aspectRatio();
+//            Image::make($image)->resize(800, 500)->save(public_path('/img/ups/'.$imageName));
+            Image::make($image)->resize(800, 500, function ($constrait) {
+                $constrait->aspectRatio();
 //            })->filter(new DemoFilter())->save(public_path('/img/ups/'.$imageName));
+            })->save(public_path('/img/ups/'.$imageName));
 
             Photo::create([
                 'name' => $imageName,

@@ -10,7 +10,7 @@
     <!--banner start-->
     <section id="home" class="container ImageBackground ImageBackground--overlay ImageBackground--overlay--white js-minusHeader u-height500" data-overlay="2">
         <div class="ImageBackground__holder">
-            <img src="assets/imgs/white-girl.jpg" alt="...">
+            <img src="/assets/imgs/white-girl.jpg" alt="...">
         </div>
         <div class="container u-vCenter">
             <div class="row text-center">
@@ -40,7 +40,8 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-2 col-sm-6 col-sm-offset-1 u-xs-MarginTop30">
-                    <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo</p>
+                    <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats
+                        vitaes nemo minima rerums unsers sadips Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo</p>
                     <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes</p>
                     <p><a class="btn btn-go" href="#" role="button">Get Started <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
                 </div>
@@ -56,129 +57,28 @@
                 <div class="">
                     <ul class="js-PortfolioFilter portfolio-filter">
                         <li class="active"><a href="#" data-filter="*"> All</a></li>
-                        <li><a href="#" data-filter=".cat1">printing</a></li>
-                        <li><a href="#" data-filter=".cat2">Web</a></li>
-                        <li><a href="#" data-filter=".cat3">illustration</a></li>
-                        <li><a href="#" data-filter=".cat4">media</a></li>
-                        <li><a href="#" data-filter=".cat5">crafts</a></li>
+                        @foreach ($states as $state)
+                            <li><a href="#" data-filter=".{{ $state->id }}">{{ $state->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
 
                 <div class="row js-Portfolio portfolio-grid portfolio-gallery">
-                    <div class="col-sm-6 portfolio-item cat1 cat3 cat5">
-                        <a href="assets/imgs/portfolio/2/01.jpg" class="portfolio-image popup-gallery" title="We are creative">
-                            <img src="assets/imgs/portfolio/2/01.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>We are creative</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
+                    @foreach ($photos as $photo)
+                        <div class="col-sm-6 portfolio-item {{ $photo->state_id }}">
+                            <a href="/img/ups/{{ $photo->name }}" class="portfolio-image popup-gallery" title="{{ $photo->description }}">
+                                <img src="/img/ups/{{ $photo->name }}" alt="{{ $photo->name }}" />
+                                <div class="portfolio-hover-title">
+                                    <div class="portfolio-content">
+                                        <h4>{{ $photo->description }}</h4>
+                                        <div class="portfolio-category">
+                                            <span>{{ $photo->state->name }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-6 portfolio-item cat2 cat3 cat4">
-                        <a href="assets/imgs/portfolio/2/02.jpg" class="portfolio-image popup-gallery" title="Branding">
-                            <img src="assets/imgs/portfolio/2/02.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>Branding</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-6 portfolio-item cat1 cat2 cat3">
-                        <a href="assets/imgs/portfolio/2/03.jpg" class="portfolio-image popup-gallery" title="Design">
-                            <img src="assets/imgs/portfolio/2/03.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>Design</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-12 portfolio-item cat1 cat4">
-                        <a href="assets/imgs/portfolio/2/04.jpg" class="portfolio-image popup-gallery" title="Photography">
-                            <img src="assets/imgs/portfolio/2/04.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>Photography</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-sm-6 portfolio-item cat2 cat3 cat4">
-                        <a href="assets/imgs/portfolio/2/05.jpg" class="portfolio-image popup-gallery" title="Branding">
-                            <img src="assets/imgs/portfolio/2/05.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>Branding</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-6 portfolio-item cat1 cat3 cat5">
-                        <a href="assets/imgs/portfolio/2/06.jpg" class="portfolio-image popup-gallery" title="We are creative">
-                            <img src="assets/imgs/portfolio/2/06.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>We are creative</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-6 portfolio-item cat1 cat2 cat3">
-                        <a href="assets/imgs/portfolio/2/07.jpg" class="portfolio-image popup-gallery" title="Design">
-                            <img src="assets/imgs/portfolio/2/07.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>Design</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-12 portfolio-item cat1 cat4">
-                        <a href="assets/imgs/portfolio/2/08.jpg" class="portfolio-image popup-gallery" title="Photography">
-                            <img src="assets/imgs/portfolio/2/08.jpg" alt=""/>
-                            <div class="portfolio-hover-title">
-                                <div class="portfolio-content">
-                                    <h4>Photography</h4>
-                                    <div class="portfolio-category">
-                                        <span>Cat 1</span>
-                                        <span>Cat 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
