@@ -20,9 +20,15 @@ class PhotoController extends Controller
     {
         $states = State::get();
 
-        return view('upload', compact('states'));
+        return view('upload', ['states' => $states]);
     }
 
+    /**
+     * Save Photos.
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function save(Request $request)
     {
         $this->validate($request, [

@@ -86,9 +86,12 @@
         <div class="row u-MarginTop60 u-MarginBottom100">
             <div class="col-md-12">
                 <div class="u-FlexCenter">
-                    <a href="#" class="btn btn-sm btn-creative btn-creative--prev text-uppercase"><span class="arrow arrow-left"></span>Previous</a>
-                    <span class="u-PaddingRight50 u-PaddingLeft50 u-Weight800">01/12</span>
-                    <a href="#" class="btn btn-sm btn-creative btn-creative--next text-uppercase">Next<span class="arrow arrow-right"></span></a>
+
+                    {{ $photos->links() }}
+
+                    {{--<a href="#" class="btn btn-sm btn-creative btn-creative--prev text-uppercase"><span class="arrow arrow-left"></span>Previous</a>--}}
+                    {{--<span class="u-PaddingRight50 u-PaddingLeft50 u-Weight800">01/12</span>--}}
+                    {{--<a href="#" class="btn btn-sm btn-creative btn-creative--next text-uppercase">Next<span class="arrow arrow-right"></span></a>--}}
                 </div>
             </div>
         </div>

@@ -23,9 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $photos = Photo::get();
+        $photos = Photo::paginate(2);
         $states = State::get();
 
-        return view('welcome', compact('photos', 'states'));
+        return view('welcome', ['photos' => $photos], ['states' => $states]);
     }
 }
