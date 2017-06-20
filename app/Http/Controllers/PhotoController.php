@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use App\Models\State;
+use App\Traits\ControllerTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Intervention\Image\Facades\Image;
 
 class PhotoController extends Controller
 {
+    use ControllerTrait;
+
     /**
      * Upload View.
      *
@@ -18,8 +22,7 @@ class PhotoController extends Controller
      */
     public function upload()
     {
-        $states = State::get();
-
+        $states = ControllerTrait::getStates();
         return view('upload', ['states' => $states]);
     }
 
@@ -56,6 +59,18 @@ class PhotoController extends Controller
 
             return Redirect::route('home');
         }
+    }
+
+    /**
+     * User Album View.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function album()
+    {
+        $userPhotos = Photo::where('user_id', Auth::user()->id)->get();
+        $states = ControllerTrait::getStates();
+        return view('album', ['userPhotos' => $userPhotos, 'states' => $states]);
     }
 
     public function proof()

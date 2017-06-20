@@ -43,5 +43,10 @@ Route::post('upload', 'PhotoController@save')
     ->middleware('auth')
     ->name('save');
 
+/**** User Photos ****/
+Route::get('album', 'PhotoController@album')
+    ->middleware('auth')
+    ->name('album');
+
 /**** Proof ****/
 Route::get('proof', 'PhotoController@proof');

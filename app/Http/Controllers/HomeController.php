@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photo;
-use App\Models\State;
+use App\Traits\ControllerTrait;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    use ControllerTrait;
+
     /**
      * Create a new controller instance.
      */
@@ -24,8 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $photos = Photo::paginate(2);
-        $states = State::get();
-
+        $states = ControllerTrait::getStates();
         return view('welcome', ['photos' => $photos], ['states' => $states]);
     }
 }

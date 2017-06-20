@@ -2,13 +2,12 @@
 
 @section ('content')
 
-    <header>
+    <header id="navigation">
         @include ('partials.navigation')
         <div class="clearfix"></div>
     </header>
 
-    <!--banner start-->
-    <section id="home" class="container ImageBackground ImageBackground--overlay ImageBackground--overlay--white js-minusHeader u-height500" data-overlay="2">
+    <section class="container ImageBackground ImageBackground--overlay ImageBackground--overlay--white js-minusHeader u-height500" data-overlay="2">
         <div class="ImageBackground__holder">
             <img src="/assets/imgs/white-girl.jpg" alt="...">
         </div>
@@ -23,34 +22,32 @@
             </div>
         </div>
         <div class="position-bottom u-zIndex10">
-            <a class="btn btn-sm btn-creative btn-creative--prev btn--vertical text-uppercase ScrollTo" href="#about"><span class="arrow arrow-left"></span>Scroll</a>
+            <a class="btn btn-sm btn-creative btn-creative--prev btn--vertical text-uppercase ScrollTo" href="#footer"><span class="arrow arrow-left"></span>Scroll</a>
         </div>
     </section>
-    <!--banner end-->
 
-    <!--heading start-->
-    <section id="about" class="u-PaddingTop100">
-        <div class="container">
-            <div class="row" >
-                <div class="col-md-4 col-sm-5">
-                    <div class="Heading"  data-title="Alien">
-                        <small class="u-Block u-Weight700 u-LetterSpacing2 text-uppercase u-PaddingTop65">Creative portfolio</small>
-                        <div class="Split Split--height2 u-MarginTop20 u-MarginBottom5"></div>
-                        <h1 class="text-uppercase u-Weight800 u-Margin0">Its all about <br>Creativity <span class="Dot"></span></h1>
-                    </div>
-                </div>
-                <div class="col-md-5 col-md-offset-2 col-sm-6 col-sm-offset-1 u-xs-MarginTop30">
-                    <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats
-                        vitaes nemo minima rerums unsers sadips Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo</p>
-                    <p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes</p>
-                    <p><a class="btn btn-go" href="#" role="button">Get Started <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--heading end-->
+    {{--<!--heading start-->--}}
+    {{--<section id="about" class="u-PaddingTop100">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row" >--}}
+                {{--<div class="col-md-4 col-sm-5">--}}
+                    {{--<div class="Heading"  data-title="Alien">--}}
+                        {{--<small class="u-Block u-Weight700 u-LetterSpacing2 text-uppercase u-PaddingTop65">Creative portfolio</small>--}}
+                        {{--<div class="Split Split--height2 u-MarginTop20 u-MarginBottom5"></div>--}}
+                        {{--<h1 class="text-uppercase u-Weight800 u-Margin0">Its all about <br>Creativity <span class="Dot"></span></h1>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-5 col-md-offset-2 col-sm-6 col-sm-offset-1 u-xs-MarginTop30">--}}
+                    {{--<p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats--}}
+                        {{--vitaes nemo minima rerums unsers sadips Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo</p>--}}
+                    {{--<p class="u-LineHeight2 u-MarginBottom30">Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes</p>--}}
+                    {{--<p><a class="btn btn-go" href="#" role="button">Get Started <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
+    {{--<!--heading end-->--}}
 
-    <!--portfolio start-->
     <div class="container">
         <div class="row u-MarginTop60">
             <div class="col-md-12">
@@ -86,16 +83,10 @@
         <div class="row u-MarginTop60 u-MarginBottom100">
             <div class="col-md-12">
                 <div class="u-FlexCenter">
-
                     {{ $photos->links() }}
-
-                    {{--<a href="#" class="btn btn-sm btn-creative btn-creative--prev text-uppercase"><span class="arrow arrow-left"></span>Previous</a>--}}
-                    {{--<span class="u-PaddingRight50 u-PaddingLeft50 u-Weight800">01/12</span>--}}
-                    {{--<a href="#" class="btn btn-sm btn-creative btn-creative--next text-uppercase">Next<span class="arrow arrow-right"></span></a>--}}
                 </div>
             </div>
         </div>
     </div>
-    <!--portfolio end-->
 
 @endsection
