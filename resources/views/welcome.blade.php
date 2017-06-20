@@ -60,10 +60,12 @@
                     </ul>
                 </div>
 
-                <div class="row js-Portfolio portfolio-grid portfolio-gallery">
+                {{--<div class="row js-Portfolio portfolio-grid portfolio-gallery">--}}
+                <div class="row js-Portfolio portfolio-grid">
                     @foreach ($photos as $photo)
                         <div class="col-sm-6 portfolio-item {{ $photo->state_id }}">
-                            <a href="/img/ups/{{ $photo->name }}" class="portfolio-image popup-gallery" title="{{ $photo->description }}">
+                            {{--<a href="/img/ups/{{ $photo->name }}" class="portfolio-image popup-gallery" title="{{ $photo->description }}">--}}
+                            <a href="{{ route('single', $photo->id) }}" class="portfolio-image popup-gallery" title="See photo">
                                 <img src="/img/ups/{{ $photo->name }}" alt="{{ $photo->name }}" />
                                 <div class="portfolio-hover-title">
                                     <div class="portfolio-content">

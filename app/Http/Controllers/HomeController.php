@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $photos = Photo::paginate(2);
         $states = ControllerTrait::getStates();
+
         return view('welcome', ['photos' => $photos], ['states' => $states]);
     }
 }

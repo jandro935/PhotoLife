@@ -39,15 +39,10 @@
                 </div>
             </div>
             <div class="col-md-8 col-sm-7">
-                <h4 class="u-Weight700 u-MarginTop0">Project Description</h4>
+                <h4 class="u-Weight700 u-MarginTop0">Image Description</h4>
                 <p class="u-MarginBottom30 u-LineHeight2">{{ $photo->description }}</p>
-                {{--<p class="u-LineHeight2"></p>--}}
             </div>
             <div class="col-md-4 col-sm-5">
-                {{--<div class="row u-MarginBottom20">--}}
-                    {{--<div class="col-xs-5"><strong>Client</strong></div>--}}
-                    {{--<div class="col-xs-7"></div>--}}
-                {{--</div>--}}
                 <div class="row u-MarginBottom20">
                     <div class="col-xs-5"><strong>Upload By</strong></div>
                     <div class="col-xs-7">
@@ -77,11 +72,6 @@
                         </div>
                     </div>
                 </div>
-                {{--<div class="row u-MarginTop50">--}}
-                    {{--<div class="col-md-5">--}}
-                        {{--<a href="#" class="btn btn-primary">Visit Website</a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
             </div>
 
             <div class="col-md-12 col-sm-12 col-xs-12 u-MarginTop150 u-xs-MarginTop30 u-sm-MarginTop30 u-sm-MarginBottom30 u-MarginBottom150 u-xs-MarginBottom30 u-FlexCenter">

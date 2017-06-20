@@ -14,6 +14,7 @@ trait ControllerTrait
     public static function getStates()
     {
         $states = State::get();
+
         return $states;
     }
 }

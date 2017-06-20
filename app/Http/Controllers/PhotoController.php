@@ -23,6 +23,7 @@ class PhotoController extends Controller
     public function upload()
     {
         $states = ControllerTrait::getStates();
+
         return view('upload', ['states' => $states]);
     }
 
@@ -70,6 +71,7 @@ class PhotoController extends Controller
     {
         $userPhotos = Photo::where('user_id', Auth::user()->id)->get();
         $states = ControllerTrait::getStates();
+
         return view('album', ['userPhotos' => $userPhotos, 'states' => $states]);
     }
 
@@ -85,6 +87,7 @@ class PhotoController extends Controller
         $similarPhotos = Photo::where('state_id', $photo->state_id)
             ->where('id', '<>', $photo->id)
             ->get();
+
         return view('single', ['photo' => $photo, 'similarPhotos' => $similarPhotos]);
     }
 
