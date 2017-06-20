@@ -48,5 +48,7 @@ Route::get('album', 'PhotoController@album')
     ->middleware('auth')
     ->name('album');
 
+Route::get('photo/{id}', 'PhotoController@single')->name('single');
+
 /**** Proof ****/
 Route::get('proof', 'PhotoController@proof');

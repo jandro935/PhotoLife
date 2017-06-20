@@ -73,6 +73,21 @@ class PhotoController extends Controller
         return view('album', ['userPhotos' => $userPhotos, 'states' => $states]);
     }
 
+    /**
+     * Single Photo View.
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function single($id)
+    {
+        $photo = Photo::findOrFail($id);
+        $similarPhotos = Photo::where('state_id', $photo->state_id)
+            ->where('id', '<>', $photo->id)
+            ->get();
+        return view('single', ['photo' => $photo, 'similarPhotos' => $similarPhotos]);
+    }
+
     public function proof()
     {
         State::insert([
