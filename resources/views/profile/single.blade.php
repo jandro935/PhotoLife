@@ -47,7 +47,6 @@
             </div>
 
             <div class=" col-md-6 col-md-offset-3 u-MarginTop100 u-xs-MarginTop30">
-                {{--<img class="img-responsive" src="/assets/imgs/team-group.jpg" alt="" />--}}
                 <img class="img-responsive" src="{{ $user->user_avatar }}" alt="user_avatar" />
             </div>
         </div>

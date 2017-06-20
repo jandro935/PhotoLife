@@ -33,3 +33,8 @@ Route::get('twitter/save', 'Auth\LoginController@twitter');
 Route::get('user/{id}', 'ProfileController@show')
     ->middleware('auth')
     ->name('user.show');
+
+/**** Upload ****/
+Route::get('upload', 'PhotoController@upload')
+    ->middleware('auth')
+    ->name('photo.upload');

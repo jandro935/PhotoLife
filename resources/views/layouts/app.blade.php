@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="html">
+<html class="html" lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="shortcut icon" type="image/png" href="/assets/imgs/favicon.png" />
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Heebo:100%7COpen+Sans:300,400,400i,600,700,800">
     <!-- inject:css -->
