@@ -50,5 +50,9 @@ Route::get('album', 'PhotoController@album')
 
 Route::get('photo/{id}', 'PhotoController@single')->name('single');
 
+Route::get('edit/{id}', 'PhotoController@edit')
+    ->middleware('auth')
+    ->name('edit');
+
 /**** Proof ****/
 Route::get('proof', 'PhotoController@proof');

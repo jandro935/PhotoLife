@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\Photo;
 use App\Models\State;
 
 trait ControllerTrait
@@ -16,5 +17,18 @@ trait ControllerTrait
         $states = State::get();
 
         return $states;
+    }
+
+    /**
+     * Search single photo by ID.
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function searchPhoto($id)
+    {
+        $photo = Photo::findOrFail($id);
+
+        return $photo;
     }
 }

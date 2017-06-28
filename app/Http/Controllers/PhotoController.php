@@ -24,7 +24,7 @@ class PhotoController extends Controller
     {
         $states = ControllerTrait::getStates();
 
-        return view('upload', ['states' => $states]);
+        return view('photo.upload', ['states' => $states]);
     }
 
     /**
@@ -72,7 +72,7 @@ class PhotoController extends Controller
         $userPhotos = Photo::where('user_id', Auth::user()->id)->get();
         $states = ControllerTrait::getStates();
 
-        return view('album', ['userPhotos' => $userPhotos, 'states' => $states]);
+        return view('photo.album', ['userPhotos' => $userPhotos, 'states' => $states]);
     }
 
     /**
@@ -83,13 +83,46 @@ class PhotoController extends Controller
      */
     public function single($id)
     {
-        $photo = Photo::findOrFail($id);
+        $photo = ControllerTrait::searchPhoto($id);
         $similarPhotos = Photo::where('state_id', $photo->state_id)
             ->where('id', '<>', $photo->id)
             ->get();
 
-        return view('single', ['photo' => $photo, 'similarPhotos' => $similarPhotos]);
+        return view('photo.single', ['photo' => $photo, 'similarPhotos' => $similarPhotos]);
     }
+
+    /**
+     * Edit Photo View.
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit($id)
+    {
+        $photo = ControllerTrait::searchPhoto($id);
+
+        return view('photo.edit', ['photo' => $photo]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $photo = ControllerTrait::searchPhoto($id);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function proof()
     {
