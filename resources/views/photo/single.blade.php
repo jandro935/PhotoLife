@@ -72,9 +72,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row u-MarginBottom20">
-                    <a href="{{ route('edit', $photo->id) }}" class="btn btn-gradient btn-block u-Rounded" title="Edit">Edit</a>
-                </div>
+                @if ($photo->user_id == Auth::user()->id)
+                    <div class="row u-MarginBottom20">
+                        <a href="{{ route('edit', $photo->id) }}" class="btn btn-gradient btn-block u-Rounded" title="Edit">Edit</a>
+                    </div>
+                @endif
             </div>
 
             <div class="col-md-12 col-sm-12 col-xs-12 u-MarginTop150 u-xs-MarginTop30 u-sm-MarginTop30 u-sm-MarginBottom30 u-MarginBottom150 u-xs-MarginBottom30 u-FlexCenter">

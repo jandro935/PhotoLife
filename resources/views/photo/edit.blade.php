@@ -37,7 +37,7 @@
     <section class="bg-darker u-PaddingTop100 u-PaddingBottom100">
         <div class="container">
             <div class="row u-MarginBottom60">
-                <form method="post" action="{{ route('save') }}" enctype="multipart/form-data" novalidate>
+                <form method="post" action="{{ route('update', $photo->id) }}" enctype="multipart/form-data" novalidate>
                     {{ csrf_field() }}
 
                     <div class="col-md-4 col-md-offset-4">
@@ -53,9 +53,6 @@
                         <div class="form-group">
                             <select class="form-control form-control--light u-Rounded" name="state" required>
                                 <option>Select State</option>
-                                @foreach ($states as $state)
-                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
-                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">

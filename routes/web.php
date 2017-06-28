@@ -54,5 +54,9 @@ Route::get('edit/{id}', 'PhotoController@edit')
     ->middleware('auth')
     ->name('edit');
 
+Route::post('edit/{id}', 'PhotoController@update')
+    ->middleware('auth')
+    ->name('update');
+
 /**** Proof ****/
 Route::get('proof', 'PhotoController@proof');

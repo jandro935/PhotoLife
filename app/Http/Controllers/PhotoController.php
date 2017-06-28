@@ -108,6 +108,13 @@ class PhotoController extends Controller
     {
         $photo = ControllerTrait::searchPhoto($id);
 
+        $this->validate($request, [
+            'image' => 'required|image',
+            'state' => 'required',
+            'description' => 'string|max:500'
+        ]);
+
+
 
     }
 
